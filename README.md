@@ -45,7 +45,7 @@ $ echo "$Y $M $N $H $D $L"
 ```
 For `bash` user, it is:
 ```
-$ read -r D M N H L Y < <(date -u)
+read -r D M N H L Y < <(date -u)
 $ echo "$Y $M $N $H $D $L"
 2023 Feb 11 21:37:31 Sat UTC
 ```
