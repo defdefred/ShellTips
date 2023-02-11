@@ -49,3 +49,34 @@ read -r D M N H L Y < <(date -u)
 $ echo "$Y $M $N $H $D $L"
 2023 Feb 11 21:37:31 Sat UTC
 ```
+
+## Compare 2 folders
+With `bash`, you can do:
+```
+$ ls -1 dir?
+dir1:
+file1
+file2
+file3
+
+dir2:
+file1
+file3
+file4
+
+$ diff <(ls -1 dir1) <(ls -1 dir2)
+2d1
+< file2
+3a3
+> file4
+```
+But for POSIX compliance, you have to do:
+```
+$ ls -1 dir1 | diff /dev/stdin /dev/stderr 2<<EOT
+$(ls -1 dir2)
+EOT
+2d1
+< file2
+3a3
+> file4
+```
