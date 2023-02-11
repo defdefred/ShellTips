@@ -1,5 +1,5 @@
 # ShellTips
-Tips for shell programming
+Tips for shell programming with shellcheck validation.
 ## Process Substitution
 Probably the best way to avoid using external command like `awk` and to keep new value of variable changed in a `while read` statement.
 ```
@@ -33,15 +33,15 @@ Sat Feb 11 22:25:04 CET 2023
 ```
 But how to split the result in multiple variable in `dash` without using external command like `awk`? 
 ```
-$ read D M N H L Y << EOT
+$ read -r D M N H L Y << EOT
 > $(date)
 > EOT
-$ echo $Y $M $N $H $D $L
+$ echo "$Y $M $N $H $D $L"
 2023 Feb 11 22:29:01 Sat CET
 ```
 For `bash` user, it is:
 ```
-$ read D M N H L Y < <(date -u)
-$ echo $Y $M $N $H $D $L
+$ read -r D M N H L Y < <(date -u)
+$ echo "$Y $M $N $H $D $L"
 2023 Feb 11 21:37:31 Sat UTC
 ```
