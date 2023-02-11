@@ -3,6 +3,7 @@ Tips for shell programming
 ## Process Substitution
 Probably the best way to avoid using external command like `awk` and to keep new value of variable changed in a `while read` statement.
 ```
+$ SUM=0
 $ while read DEV SIZE DONTCARE
 do
   SUM=$(expr $SUM + $SIZE)
@@ -11,10 +12,10 @@ $(df -lk | egrep "^/")
 EOT
 $ echo $SUM
 248314248
-` 
 ```
 For `bash` user, it is:
 ```
+$ SUM=0
 $ while read DEV SIZE DONTCARE
 do
   SUM=$(expr $SUM + $SIZE)
