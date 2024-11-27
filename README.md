@@ -80,3 +80,11 @@ EOT
 3a3
 > file4
 ```
+
+## Get yesterday date for log rotation
+```
+$ YESTERDAY=$(date -d "1 day ago" +"%Y%m%d")
+$ echo $YESTERDAY
+20241126
+
+```
